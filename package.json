@@ -1,0 +1,16 @@
+{
+  "name": "sg-stores-sdk",
+  "version": "1.0.0",
+  "description": "An SDK for Salling Group's Stores API ",
+  "main": "index.js",
+  "author": {
+    "name": "API Devs",
+    "email": "apisupport@sallinggroup.com"
+  },
+  "dependencies": {
+    "sg-base-sdk": "1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "5.2.0"
+  }
+}
