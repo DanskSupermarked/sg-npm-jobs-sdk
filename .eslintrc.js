@@ -1085,7 +1085,7 @@ module.exports = {
     'no-use-before-define': 'error',
   },
   'parserOptions': {
-    'ecmaVersion': 2017,
+    'ecmaVersion': 2018,
     'sourceType': 'module',
   }
 };
