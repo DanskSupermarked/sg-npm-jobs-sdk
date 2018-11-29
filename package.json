@@ -1,14 +1,17 @@
 {
-  "name": "sg-stores-sdk",
-  "version": "1.0.0",
-  "description": "An SDK for Salling Group's Stores API ",
-  "main": "index.js",
+  "name": "@salling-group/jobs",
+  "description": "An SDK for Salling Group's Jobs API ",
+  "repository": "https://github.com/DanskSupermarked/sg-npm-jobs-sdk",
+  "license": "MIT",
   "author": {
-    "name": "API Devs",
-    "email": "apisupport@sallinggroup.com"
+    "name": "Salling Group - API Developers",
+    "email": "apisupport@sallinggroup.com",
+    "url": "https://developer.sallinggroup.com/"
   },
+  "main": "index.js",
   "dependencies": {
-    "sg-base-sdk": "1.0.0"
+    "@salling-group/auth": "1.0.1",
+    "@salling-group/pagination-traverser": "1.0.0"
   },
   "devDependencies": {
     "eslint": "5.2.0"

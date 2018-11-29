@@ -1,4 +1,6 @@
-const { Traverser } = require('sg-base-sdk');
+const Traverser = require('@salling-group/pagination-traverser');
+const { createInstance } = require('@salling-group/auth');
+const { version } = require('./package');
 
 const BASE_URL = '/v1/jobs/';
 
@@ -48,6 +50,17 @@ class JobsQuery {
   }
 
   /**
+   * Returns only jobs in the given country.
+   *
+   * @param {string} country The country to filter by.
+   * @returns {JobsQuery}
+   */
+  inCountry(country) {
+    this.set('country', country);
+    return this;
+  }
+
+  /**
    * Return only jobs in the given city.
    *
    * @param {string} city The city to filter by.
@@ -86,10 +99,21 @@ class JobsAPI {
   /**
    * Initialize a new Jobs API wrapper.
    *
-   * @param {Object} api A SallingGroupAPI instance.
+   * @param {Object} options Options for the instance.
+   * @param {Object} options.auth Credentials for the instance.
+   * @param {String} options.auth.type The type of authentication.
+   * @param {String} [options.auth.email] The email used for JWT.
+   * @param {String} [options.auth.secret] The secret used for JWT.
+   * @param {String} [options.auth.token] The token used for Bearer.
+   * @param {String} [options.applicationName]
+   * The name of the application which will use this instance.
+   * This will be sent in the user-agent header.
    */
-  constructor(api) {
-    this.api = api;
+  constructor(options) {
+    this.instance = createInstance({
+      ...options,
+      'baseName': `Holidays SDK v${version}`,
+    });
   }
 
   /**
@@ -100,7 +124,7 @@ class JobsAPI {
    */
   async get(jobID) {
     try {
-      const result = await this.api.get(`${BASE_URL}${jobID}`);
+      const result = await this.instance.get(`${BASE_URL}${jobID}`);
       return result.data;
     } catch (error) {
       if (error.statusCode === 404) {
@@ -117,7 +141,7 @@ class JobsAPI {
    * @returns {Traverser} A traverser to use for iteration over the jobs.
    */
   query(params = {}) {
-    return new Traverser(this.api, BASE_URL, { 'params': params });
+    return new Traverser(this.instance, BASE_URL, { 'params': params });
   }
 
   /**
