@@ -10,10 +10,10 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@salling-group/auth": "1.0.1",
-    "@salling-group/pagination-traverser": "1.0.0"
+    "@salling-group/auth": "^1.0.2",
+    "@salling-group/pagination-traverser": "^1.0.1"
   },
   "devDependencies": {
-    "eslint": "5.2.0"
+    "eslint": "^6.0.1"
   }
 }
