@@ -102,7 +102,7 @@ class JobsAPI {
    * @param {Object} options Options for the instance.
    * @param {Object} options.auth Credentials for the instance.
    * @param {String} options.auth.type The type of authentication.
-   * @param {String} [options.auth.email] The email used for JWT.
+   * @param {String} [options.auth.issuer] The issuer used for JWT.
    * @param {String} [options.auth.secret] The secret used for JWT.
    * @param {String} [options.auth.token] The token used for Bearer.
    * @param {String} [options.applicationName]

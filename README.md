@@ -10,7 +10,7 @@ You can get your credentials through the [developer portal](https://developer.sa
 The SDK heavily relies on `Traverser`s. You can read more about them [here](https://www.npmjs.com/package/@salling-group/pagination-traverser).
 
 The following example gets names of all Netto job openings in the ZIP code 8200.
-You will need to get a JWT secret or Bearer token with access to the Jobs API from the [developer portal](https://developer.sallinggroup.com/). 
+You will need to get a JWT secret or Bearer token with access to the Jobs API from the [developer portal](https://developer.sallinggroup.com/).
 ```js
 const Jobs = require('@salling-group/jobs');
 const instance = new Jobs({
@@ -27,13 +27,13 @@ const traverser = instance.beginQuery()
   .execute();
 
 traverser.get().then((page) => console.log(page));
-``` 
+```
 This prints:
 ```json
 [
   {
     "title": "Butiksassistent under 18 år - Aarhus N",
-    "address": { 
+    "address": {
       "city": "Aarhus N",
       "country": "DK",
       "street": "Finlandsgade 15",
@@ -42,7 +42,7 @@ This prints:
   },
   {
     "title": "Butiksassistent under 18 år - Aarhus N",
-    "address": { 
+    "address": {
       "city": "Aarhus N",
       "country": "DK",
       "street": "Randersvej 116-118",
@@ -51,7 +51,7 @@ This prints:
   },
   {
     "title": "Souschef - Aarhus N",
-    "address": 
+    "address":
      { "city": "Aarhus N",
        "country": "DK",
        "street": "Finlandsgade 15",
@@ -70,7 +70,7 @@ This initializes a new Jobs SDK object.
 |--------|-----|--------|-----------|
 |`type`|`'jwt'` or `'bearer'`|Yes|The authentication type. This is either a JWT or a Bearer Token.|
 |`token`|`String`|If `type` is `'bearer'`.|The token associared with the bearer token credentials.|
-|`email`|`String`|If `type` is `'jwt'`.|The email associated with the JWT credentials.|
+|`issuer`|`String`|If `type` is `'jwt'`.|The issuer associated with the JWT credentials.|
 |`secret`|`String`|If `type` is `'jwt'`.|The secret associated with the JWT credentials.|
 
 `applicationName` should be set in the `options` object, but this is optional.
@@ -83,7 +83,7 @@ const instance = new Jobs({
   'applicationName': 'My Application v1.0.0',
   'auth': {
     'type': 'jwt',
-    'email': 'my_email',
+    'issuer': 'my_issuer',
     'secret': 'my_secret'
   },
 });
